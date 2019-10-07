@@ -21,17 +21,17 @@
 				</div>
 					<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 					<div id="proj" class="col">
-						<div class="container-fluid">
-							<div class="row">
+						<div class="container-fluid h-100">
+							<div class="row h-100">
 							
-								<div  v-for="proj in projects" class="col">
+								<div  v-for="proj in projects" class="col border border-dark">
 									<h1>Github Projects</h1>
 									<ul>
 										<li v-for="project in proj.github"><h3><a :href="project.link"> {{project.title}} </a>- {{ project.desc }}</h3></li>
 									</ul>
 								</div>
 								
-								<div  v-for="proj in projects" class="col">
+								<div  v-for="proj in projects" class="col border border-dark border-left-0">
 									<h1>Bitbucket projects</h1>
 									<ul>
 										<li v-for="project in proj.bitbucket"><h3><a :href="project.link"> {{project.title}} </a>- {{ project.desc }}</h3></li>
