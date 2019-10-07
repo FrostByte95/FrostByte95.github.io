@@ -1,7 +1,66 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<title>jrelich.com</title>
+</head>
 	<body>
-		<h1>Hello World</h1>
-		<p>This site will eventually list my github projects</p>
+		<div id="welcome" class="container justify-content-center">
+			<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+			<div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="joshua-relich"><a class="LI-simple-link" href='https://www.linkedin.com/in/joshua-relich?trk=profile-badge'>Joshua Relich</a></div>
+		</div>
+		
+		<hr>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+		<div id="proj" class="container justify-content-center">
+			<div  v-for="proj in projects">
+				<h1>Github Projects</h1>
+				<ul>
+					<li v-for="project in proj.github"><h3><a :href="project.link"> {{project.title}} </a>- {{ project.desc }}</h3></li>
+				</ul>
+			</div>
+			<div  v-for="proj in projects">
+				<h1>Bitbucket projects</h1>
+				<ul>
+					<li v-for="project in proj.bitbucket"><h3><a :href="project.link"> {{project.title}} </a>- {{ project.desc }}</h3></li>
+				</ul>
+			</div>
+		</div>
 	</body>
 </html>
+
+<script>
+
+var proj = new Vue({
+	el: '#proj',
+	data: {
+		projects: [{
+			github: [
+				{ 
+					title: 'jrelich.com',
+					desc: 'This site made with Vue.js and Bootstrap',
+					link: '#'
+				},
+				{
+					title: 'DDNSU',
+					desc: 'Dynamic DNS updater for google domains',
+					link: 'https://github.com/FrostByte95/DDNSU'
+				}
+			],
+			bitbucket: [
+				{ 
+					title: 'Shogi game',
+					desc: 'Shogi(Japanese chess) game made with the Java Swing API',
+					link: 'https://bitbucket.org/RelichJ/assignmentx/src/master/'
+				},
+			]
+		}]
+	}
+})
+</script>
