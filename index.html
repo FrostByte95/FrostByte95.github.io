@@ -11,27 +11,42 @@
 	<title>jrelich.com</title>
 </head>
 	<body>
-		<div id="welcome" class="container justify-content-center">
-			<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-			<div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="joshua-relich"><a class="LI-simple-link" href='https://www.linkedin.com/in/joshua-relich?trk=profile-badge'>Joshua Relich</a></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-auto">
+					<div id="badge" class="container justify-content-center">
+						<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+						<div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="joshua-relich"><a class="LI-simple-link" href='https://www.linkedin.com/in/joshua-relich?trk=profile-badge'>Joshua Relich</a></div>
+					</div>
+				</div>
+					<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+					<div id="proj" class="col">
+						<div class="container">
+							<div class="row">
+							
+								<div  v-for="proj in projects" class="col">
+									<h1>Github Projects</h1>
+									<ul>
+										<li v-for="project in proj.github"><h3><a :href="project.link"> {{project.title}} </a>- {{ project.desc }}</h3></li>
+									</ul>
+								</div>
+								
+								<div  v-for="proj in projects" class="col">
+									<h1>Bitbucket projects</h1>
+									<ul>
+										<li v-for="project in proj.bitbucket"><h3><a :href="project.link"> {{project.title}} </a>- {{ project.desc }}</h3></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+			</div>
 		</div>
 		
+		
 		<hr>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-		<div id="proj" class="container justify-content-center">
-			<div  v-for="proj in projects">
-				<h1>Github Projects</h1>
-				<ul>
-					<li v-for="project in proj.github"><h3><a :href="project.link"> {{project.title}} </a>- {{ project.desc }}</h3></li>
-				</ul>
-			</div>
-			<div  v-for="proj in projects">
-				<h1>Bitbucket projects</h1>
-				<ul>
-					<li v-for="project in proj.bitbucket"><h3><a :href="project.link"> {{project.title}} </a>- {{ project.desc }}</h3></li>
-				</ul>
-			</div>
-		</div>
+		
 	</body>
 </html>
 
